@@ -1,0 +1,11 @@
+#!/bin/sh
+
+books="$HOME/Data/Media/Books/"
+
+read="$(fd --base-directory $books --full-path "$books" | tofi --prompt-text "Select the Book: ")"
+
+if [ -z "$read" ]; then
+	exit 0
+else
+	setsid -f zathura $books/"$read"
+fi
