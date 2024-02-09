@@ -1,6 +1,6 @@
 #!/bin/sh
 
-opt="$(echo "Yes\nNo" | tofi --prompt-text "Are you sure to unmount mnt?")"
+opt="$(printf "Yes\nNo" | tofi --prompt-text "Are you sure to unmount mnt?")"
 
 if [ "$opt" = "Yes" ]; then
 	sudo umount $HOME/mnt && notify-send "Unmount Successful"
